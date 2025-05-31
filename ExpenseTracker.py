@@ -25,3 +25,7 @@ class ExpenseTracker:
             print("Expense list:")
             for i, expense in enumerate(self.expenses, start = 1):
                 print(f"{i}. Date {expense.date}, Description: {expense.description}, Amount: ${expense.amount:.2f}") # Format Amount with 2 decimal places
+
+    def total_expenses(self):
+        total = sum(expense.amount for expense in self.expenses)
+        print(f"Total Expenses: ${total:.2f}")
