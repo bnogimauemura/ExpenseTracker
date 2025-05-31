@@ -3,3 +3,7 @@ class Expense:
         self.date = date
         self.description = description
         self.amount = amount
+
+class ExpenseTracker:
+    def __init__(self):
+        self.expenses = []
