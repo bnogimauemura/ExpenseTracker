@@ -29,3 +29,35 @@ class ExpenseTracker:
     def total_expenses(self):
         total = sum(expense.amount for expense in self.expenses)
         print(f"Total Expenses: ${total:.2f}")
+
+def main():
+        tracker = ExpenseTracker()
+
+        while True:
+            print("\nExpense Tracker Menu:") # \n is a newline character, this add a line before printing this message
+            print("1. Add Expense")
+            print("2. Remove Expense")
+            print("3. View Expenses")
+            print("4. Total Expenses")
+            print("5. Exit")
+
+            choice = input("Enter your choice (1-5): ")
+
+            if choice == "1":
+                date = input("Enter the date(YYYY-MM-DD): ")
+                description = input("Enter the description: ")
+                amount = float(input("Enter the amount: "))
+                expense = Expense(date, description, amount)
+                tracker.add_expense(expense)
+            elif choice == "2":
+                index = int(input("Enter the expense index to remove: ")) - 1
+                tracker.remove_expense(index)
+            elif choice == "3":
+                tracker.view_expenses()
+            elif choice == "4":
+                tracker.total_expenses()
+            elif choice == "5":
+                print("Goodbye!")
+                break
+            else: 
+                print("Invalid choice. Please try again!")
