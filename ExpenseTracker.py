@@ -1,8 +1,9 @@
 class Expense: 
-    def __init__(self, date, description, amount):
+    def __init__(self, date, description, amount, category):
         self.date = date
         self.description = description
         self.amount = amount
+        self.category = category
 
 class ExpenseTracker:
     def __init__(self):
