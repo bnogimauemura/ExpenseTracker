@@ -58,7 +58,8 @@ def main():
                 date = input("Enter the date(YYYY-MM-DD): ")
                 description = input("Enter the description: ")
                 amount = float(input("Enter the amount: "))
-                expense = Expense(date, description, amount)
+                category = input("Enter the category: ")
+                expense = Expense(date, description, amount, category)
                 tracker.add_expense(expense)
             elif choice == "2":
                 index = int(input("Enter the expense index to remove: ")) - 1
