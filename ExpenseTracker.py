@@ -67,8 +67,10 @@ def main():
             elif choice == "3":
                 tracker.view_expenses()
             elif choice == "4":
-                tracker.total_expenses()
+                tracker.view_categories()
             elif choice == "5":
+                tracker.total_expenses()
+            elif choice == "6":
                 print("Goodbye!")
                 break
             else: 
