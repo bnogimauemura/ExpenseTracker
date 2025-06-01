@@ -27,6 +27,16 @@ class ExpenseTracker:
             for i, expense in enumerate(self.expenses, start = 1):
                 print(f"{i}. Date {expense.date}, Description: {expense.description}, Amount: ${expense.amount:.2f}") # Format Amount with 2 decimal places
 
+
+    def view_categories(self):
+        if len(self.expenses) == 0:
+            print("No expenses found.")
+        else:
+            categories = set(expense.category for expense in self.expenses) # set is used to avoid duplicate category names
+            print("\nCategories:")
+            for category in categories:
+                print(f"- {category}")
+                
     def total_expenses(self):
         total = sum(expense.amount for expense in self.expenses)
         print(f"Total Expenses: ${total:.2f}")
