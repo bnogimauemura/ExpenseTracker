@@ -78,3 +78,15 @@ def main():
 
 if __name__ == "__main__":
     main()                  # Prevents the menu from running automatically when this file is imported
+
+# get the percentage of expenses by day and the total amount based on day, separate in % per category
+# EXAMPLE: 2025-06-01 Total: 20000 yen, Food: 56%, hobby 20%, shopping: 24%, ....something like this 
+
+
+# Feature?	                         Feasible?	              Tech Needed
+# Track by month	                    ✅	                 Django ORM, date filtering
+# Set and check monthly limits	        ✅	                 Django forms + logic
+# Warn if hobby > 20%	                ✅	                 Django query + math
+# Compare to previous month	            ✅	                 Date logic, Django ORM
+# Per-category % comparison	            ✅	                 Aggregate by category
+# ML prediction after 6 months	        ✅	                 Scikit-learn / PyTorch later
