@@ -81,6 +81,9 @@ if __name__ == "__main__":
 
 # get the percentage of expenses by day and the total amount based on day, separate in % per category
 # EXAMPLE: 2025-06-01 Total: 20000 yen, Food: 56%, hobby 20%, shopping: 24%, ....something like this 
+# 1. map through all the expenses by date
+# 2. sum based on category 
+# 3. return in percentage the amount (per category) compared with the total of the day
 
 
 # Feature?	                         Feasible?	              Tech Needed
