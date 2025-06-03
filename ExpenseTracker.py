@@ -32,8 +32,8 @@ class ExpenseTracker:
 
         if filtered:
             print(f"\nExpenses on {target_date}")
-            for i, expense in enumerate(filtered, start=1):    
-                print(f"{i}. Description: {expense.description}, Amount: ${expense.amount:.2f}, Category: {expense.category}")    
+            for i, expense in enumerate(filtered, start=1):    # enumerate gives the index (i) and the item (expense) while looping
+                print(f"{i}. Description: {expense.description}, Amount: ${expense.amount:.2f}, Category: {expense.category}")    # start=1 makes the counter start from 1 instead of 0 (more user-friendly)
         else:
             print(f"No expenses found for {target_date}.")
 
