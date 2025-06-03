@@ -27,6 +27,16 @@ class ExpenseTracker:
             for i, expense in enumerate(self.expenses, start = 1):
                 print(f"{i}. Date {expense.date}, Description: {expense.description}, Amount: ${expense.amount:.2f}") # Format Amount with 2 decimal places
 
+    def view_expenses_by_date(self, target_date):
+        filtered = [exp for exp in self.expenses if exp.date == target_date]
+
+        if filtered:
+            print(f"\nExpenses on {target_date}")
+            for i, expense in enumerate(filtered, start=1):    
+                print(f"{i}. Description: {expense.description}, Amount: ${expense.amount:.2f}, Category: {expense.category}")    
+        else:
+            print(f"No expenses found for {target_date}.")
+
     def view_categories(self):
         if len(self.expenses) == 0:
             print("No expenses found.")
@@ -48,11 +58,12 @@ def main():
             print("1. Add Expense")
             print("2. Remove Expense")
             print("3. View Expenses")
-            print("4. Expenses by Category")
-            print("5. Total Expenses")
-            print("6. Exit")
+            print("4. View Expenses by Date")
+            print("5. Expenses by Category")
+            print("6. Total Expenses")
+            print("7. Exit")
 
-            choice = input("Enter your choice (1-5): ")
+            choice = input("Enter your choice (1-7): ")
 
             if choice == "1":
                 date = input("Enter the date(YYYY-MM-DD): ")
@@ -67,10 +78,13 @@ def main():
             elif choice == "3":
                 tracker.view_expenses()
             elif choice == "4":
-                tracker.view_categories()
+                date = input("Enter the date to filter (YYYY-MM-DD): ")
+                tracker.view_expenses_by_date(date)
             elif choice == "5":
-                tracker.total_expenses()
+                tracker.view_categories()
             elif choice == "6":
+                tracker.total_expenses()
+            elif choice == "7":
                 print("Goodbye!")
                 break
             else: 
