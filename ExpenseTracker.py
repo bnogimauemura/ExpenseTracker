@@ -25,9 +25,9 @@ class ExpenseTracker:
     def remove_expense(self, index):
         if 0 <= index < len(self.expenses):
             del self.expenses[index]
-            print("Expense removed successfully!")
+            print(f"{bcolors.OKGREEN}Expense removed successfully!{bcolors.ENDC}")
         else:
-            print(f"Invalid expense index.")
+            print("Invalid expense index.")
 
     def view_expenses(self):
         if len(self.expenses) == 0:
