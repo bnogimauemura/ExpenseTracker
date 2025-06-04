@@ -1,3 +1,13 @@
+class bcolors:
+    HEADER = '\033[95m'      # Light Magenta / Purple
+    OKBLUE = '\033[94m'      # Light Blue
+    OKCYAN = '\033[96m'      # Light Cyan / Aqua
+    OKGREEN = '\033[92m'     # Light Green
+    WARNING = '\033[93m'     # Yellow
+    FAIL = '\033[91m'        # Light Red
+    ENDC = '\033[0m'         # Reset all attributes
+    BOLD = '\033[1m'         # Bold text
+    UNDERLINE = '\033[4m'    # Underlined text
 class Expense: 
     def __init__(self, date, description, amount, category):
         self.date = date
@@ -17,7 +27,7 @@ class ExpenseTracker:
             del self.expenses[index]
             print("Expense removed successfully!")
         else:
-            print("Invalid expense index.")
+            print(f"Invalid expense index.")
 
     def view_expenses(self):
         if len(self.expenses) == 0:
