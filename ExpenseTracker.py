@@ -25,15 +25,15 @@ class ExpenseTracker:
     def remove_expense(self, index):
         if 0 <= index < len(self.expenses):
             del self.expenses[index]
-            print(f"{bcolors.OKGREEN}Expense removed successfully!{bcolors.ENDC}")
+            print(f"{bcolors.OKGREEN}\nExpense removed successfully!{bcolors.ENDC}")
         else:
-            print(f"{bcolors.FAIL}Invalid expense index.{bcolors.ENDC}")
+            print(f"{bcolors.FAIL}\nInvalid expense index.{bcolors.ENDC}")
 
     def view_expenses(self):
         if len(self.expenses) == 0:
-            print(f"{bcolors.FAIL}No expenses found.{bcolors.ENDC}")
+            print(f"{bcolors.FAIL}\nNo expenses found.{bcolors.ENDC}")
         else:
-            print(f"{bcolors.OKBLUE}Expense list:{bcolors.ENDC}")
+            print(f"{bcolors.OKBLUE}\nExpense list:{bcolors.ENDC}")
             for i, expense in enumerate(self.expenses, start = 1):
                 print(f"{bcolors.OKCYAN}{i}.{bcolors.ENDC} Date {expense.date}, Description: {expense.description}, Amount: ${expense.amount:.2f}.") # Format Amount with 2 decimal places
 
@@ -41,15 +41,15 @@ class ExpenseTracker:
         filtered = [exp for exp in self.expenses if exp.date == target_date]
 
         if filtered:
-            print(f"{bcolors.OKBLUE}Expenses on {target_date}:{bcolors.ENDC}")
+            print(f"{bcolors.OKBLUE}\nExpenses on {target_date}:{bcolors.ENDC}")
             for i, expense in enumerate(filtered, start=1):    # enumerate gives the index (i) and the item (expense) while looping
                 print(f"{bcolors.OKCYAN}{i}.{bcolors.ENDC} Description: {expense.description}, Amount: ${expense.amount:.2f}, Category: {expense.category}.")    # start=1 makes the counter start from 1 instead of 0 (more user-friendly)
         else:
-            print(f"{bcolors.FAIL}No expenses found for {target_date}.{bcolors.ENDC}")
+            print(f"{bcolors.FAIL}\nNo expenses found for {target_date}.{bcolors.ENDC}.")
 
     def view_categories(self):
         if len(self.expenses) == 0:
-            print(f"{bcolors.FAIL}No expenses found.{bcolors.ENDC}")
+            print(f"{bcolors.FAIL}\nNo expenses found.{bcolors.ENDC}")
         else:
             categories = set(expense.category for expense in self.expenses) # set is used to avoid duplicate category names
             print(f"{bcolors.OKBLUE}Categories:{bcolors.ENDC}")
@@ -58,7 +58,7 @@ class ExpenseTracker:
 
     def total_expenses(self):
         total = sum(expense.amount for expense in self.expenses)
-        print(f"{bcolors.OKGREEN}{bcolors.BOLD}Total Expenses:{bcolors.ENDC}{bcolors.ENDC} ${total:.2f}")
+        print(f"\n{bcolors.OKGREEN}{bcolors.BOLD}Total Expenses:{bcolors.ENDC}{bcolors.ENDC} ${total:.2f}")
 
 def main():
         tracker = ExpenseTracker()
@@ -76,10 +76,10 @@ def main():
             choice = input("Enter your choice (1-7): ")
 
             if choice == "1":
-                date = input("Enter the date(YYYY-MM-DD): ")
-                description = input("Enter the description: ")
-                amount = float(input("Enter the amount: "))
-                category = input("Enter the category: ")
+                date = input(f"\n{bcolors.OKBLUE}Enter the date{bcolors.ENDC}(YYYY-MM-DD): ")
+                description = input(f"{bcolors.OKBLUE}Enter the description:{bcolors.ENDC} ")
+                amount = float(input(f"{bcolors.OKBLUE}Enter the amount:{bcolors.ENDC} "))
+                category = input(f"{bcolors.OKBLUE}Enter the category: {bcolors.ENDC}")
                 expense = Expense(date, description, amount, category)
                 tracker.add_expense(expense)
             elif choice == "2":
@@ -98,7 +98,7 @@ def main():
                 print("Goodbye!")
                 break
             else: 
-                print("Invalid choice. Please try again!")
+                print(f"{bcolors.FAIL}Invalid choice. Please try again!{bcolors.ENDC}")
 
 if __name__ == "__main__":
     main()                  # Prevents the menu from running automatically when this file is imported
